@@ -34,18 +34,38 @@ function swapImg(imgEId) {
 }
 
 function compareImgs(imgEId) {
-    if (localStorage["compImg1"] !== undefined && localStorage["compImg2"] !== undefined && localStorage["clickNum"] === "2") {
+    if (localStorage["eID1"] === localStorage["eID2"]) {
+        swal("You can't select the same element twice")
+        document.getElementById(localStorage["eID1"]).src = "img/blankbox.png";
+        document.getElementById(localStorage["eID2"]).src = "img/blankbox.png";
+        localStorage.setItem("eID1", null);
+        localStorage.setItem("eID2", null);
+    }
+    else if (localStorage["compImg1"] !== undefined && localStorage["compImg2"] !== undefined && localStorage["clickNum"] === "2") {
+        
         if (localStorage["compImg1"] === localStorage["compImg2"]) {
-            alert("We have a match!");
+            swal({
+                title: "Wooooot!",
+                text: "You have a match!",
+                icon: "success",
+            });
             localStorage.setItem("compImg1", null);
             localStorage.setItem("compImg2", null);
+            localStorage.setItem("eID1", null);
+            localStorage.setItem("eID2", null);
         }
         else {
-            alert("Sorry no match!");
+            swal({
+                title: "Booooo!",
+                text: "You don't have a match!",
+                icon: "error",
+            });
             localStorage.setItem("compImg1", null);
             localStorage.setItem("compImg2", null);
             document.getElementById(localStorage["eID1"]).src = "img/blankbox.png";
             document.getElementById(localStorage["eID2"]).src = "img/blankbox.png";
+            localStorage.setItem("eID1", null);
+            localStorage.setItem("eID2", null);
         }
     }
 }

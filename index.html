@@ -7,33 +7,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body onload="clearCache();shuffleImgs()">
         <header>
             <div id="header">
                 <h1 id="header">PICTURE MATCHING GAME</h1>
             </div>
         </header>
         <main>
-            <div id="gameCards">
-                <img id="gameCards" src="img/003-compass.png">
-                <img id="gameCards" src="img/003-compass.png">
-                <img id="gameCards" src="img/013-airplane.png">
-                <img id="gameCards" src="img/013-airplane.png">
-                <img id="gameCards" src="img/015-mountain.png">
-                <img id="gameCards" src="img/015-mountain.png">
-                <img id="gameCards" src="img/022-steering-wheel.png">
-                <img id="gameCards" src="img/022-steering-wheel.png">
-                <img id="gameCards" src="img/035-barbecue.png">
-                <img id="gameCards" src="img/035-barbecue.png">
-                <img id="gameCards" src="img/037-drink.png">
-                <img id="gameCards" src="img/037-drink.png">
-                <img id="gameCards" src="img/039-hot-air-balloon.png">
-                <img id="gameCards" src="img/039-hot-air-balloon.png">
-                <img id="gameCards" src="img/040-ship.png">
-                <img id="gameCards" src="img/040-ship.png">
+            <div class="gameCards">
+                <img class="gameCards" id="1" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="2" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="3" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="4" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="5" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="6" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="7" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="8" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="9" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="10" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="11" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="12" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="13" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="14" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="15" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
+                <img class="gameCards" id="16" src="img/blankbox.png" onclick="clickTrack(id);swapImg(id);compareImgs(id)">
             </div>
         </main>
         <br><br>
-        <script src="" async defer></script>
+        <script src="js/app.js" async defer></script>
     </body>
 </html>

@@ -22,7 +22,7 @@ h1#header {
     margin: 10px 0 10px 0;
 }
 
-div#gameCards {
+div.gameCards {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -30,7 +30,7 @@ div#gameCards {
     margin-top: 15px;
 }
 
-img#gameCards {
+img.gameCards {
     height: 40%;
     width: 20%;
     margin: 5px;

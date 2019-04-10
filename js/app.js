@@ -33,7 +33,26 @@ function swapImg(imgEId) {
     }
 }
 
+var matchCount = 0;
+var imgsSelected = [];
+
 function compareImgs(imgEId) {
+
+    for (var i = 0; i <= 16; i++) {
+        if (imgEId === imgsSelected[i]) {
+            swal("You already selected this block!");
+            return;
+        }
+    }
+
+    clickTrack(imgEId);
+    swapImg(imgEId);
+
+    if (localStorage["clickNum"] === "1") {
+        imgsSelected.push(imgEId);
+    }
+
+
     if (localStorage["eID1"] === localStorage["eID2"]) {
         swal("You can't select the same element twice")
         document.getElementById(localStorage["eID1"]).src = "img/blankbox.png";
@@ -53,6 +72,8 @@ function compareImgs(imgEId) {
             localStorage.setItem("compImg2", null);
             localStorage.setItem("eID1", null);
             localStorage.setItem("eID2", null);
+            matchCount++;
+            imgsSelected.push(imgEId);
         }
         else {
             swal({
@@ -66,7 +87,21 @@ function compareImgs(imgEId) {
             document.getElementById(localStorage["eID2"]).src = "img/blankbox.png";
             localStorage.setItem("eID1", null);
             localStorage.setItem("eID2", null);
+            imgsSelected.pop();
         }
+    }
+
+    if(matchCount === 8) {
+        swal({
+            title: "YOU WIN!!!",
+            text: "Press ok to restart game!",
+            icon: "success",
+            //buttons: {restart = "Restart Game", cancel ="I don't want to play"}
+          })
+          .then((restart) => {
+            if (restart) {
+                location.reload(); }
+          });
     }
 }
 
@@ -106,6 +141,7 @@ function clickTrack(imgEId) {
         localStorage["eID1"] = imgEId;
     }
 }
+
 
 function clearCache() {
     window.localStorage.clear();

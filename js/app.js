@@ -35,9 +35,10 @@ function swapImg(imgEId) {
 
 var matchCount = 0;
 var imgsSelected = [];
+var movesMade = 0;
 
 function compareImgs(imgEId) {
-
+    debugger;
     for (var i = 0; i <= 16; i++) {
         if (imgEId === imgsSelected[i]) {
             swal("You already selected this block!");
@@ -61,13 +62,10 @@ function compareImgs(imgEId) {
         localStorage.setItem("eID2", null);
     }
     else if (localStorage["compImg1"] !== undefined && localStorage["compImg2"] !== undefined && localStorage["clickNum"] === "2") {
-        
+        movesMade++;
+        incrimentMovesMade();
+        //check if there is a match
         if (localStorage["compImg1"] === localStorage["compImg2"]) {
-            swal({
-                title: "Wooooot!",
-                text: "You have a match!",
-                icon: "success",
-            });
             localStorage.setItem("compImg1", null);
             localStorage.setItem("compImg2", null);
             localStorage.setItem("eID1", null);
@@ -75,12 +73,8 @@ function compareImgs(imgEId) {
             matchCount++;
             imgsSelected.push(imgEId);
         }
+        //when there is not a match reset images
         else {
-            swal({
-                title: "Booooo!",
-                text: "You don't have a match!",
-                icon: "error",
-            });
             localStorage.setItem("compImg1", null);
             localStorage.setItem("compImg2", null);
             document.getElementById(localStorage["eID1"]).src = "img/blankbox.png";
@@ -142,7 +136,16 @@ function clickTrack(imgEId) {
     }
 }
 
+function incrimentMovesMade() {
+    document.getElementById("movesMade").innerHTML = "Moves Made: " + movesMade;
+}
 
 function clearCache() {
     window.localStorage.clear();
 }
+
+var timer = new Timer();
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#timer').html(timer.getTimeValues().toString());
+});

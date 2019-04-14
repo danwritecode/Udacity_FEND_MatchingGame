@@ -22,6 +22,18 @@ h1#header {
     margin: 10px 0 10px 0;
 }
 
+div#stats {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+p.statMetrics {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+}
+
 div.gameCards {
     display: flex;
     flex-flow: row wrap;
@@ -34,4 +46,8 @@ img.gameCards {
     height: 40%;
     width: 20%;
     margin: 5px;
+}
+
+.checked {
+    color: orange;
 }

@@ -6,11 +6,21 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body onload="clearCache();shuffleImgs()">
         <header>
             <div id="header">
                 <h1 id="header">PICTURE MATCHING GAME</h1>
+            </div>
+            <div id="stats">
+                <p class="statMetrics" id="timer">00:00:00</p>
+                <p class="statMetrics" id="movesMade">Moves Made: 0</p>
+                <p class="statMetrics"><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span></p>
             </div>
         </header>
         <main>
@@ -36,5 +46,6 @@
         <br><br>
         <script src="js/app.js" async defer></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="lib/easytimer/dist/easytimer.min.js"></script>
     </body>
 </html>

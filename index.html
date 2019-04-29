@@ -14,13 +14,17 @@
                 <h1 id="header">PICTURE MATCHING GAME</h1>
             </div>
             <div id="stats">
-                <p class="statMetrics" id="timer">00:00:00</p>
+                <p>
+                    <span id="minutes">00</span>:<span id="seconds">00</span>
+                </p>
                 <p class="statMetrics" id="movesMade">Moves Made: 0</p>
-                <p id="starRating" class="statMetrics"><span id="starOne" class="fa fa-star checked"></span>
-                                                        <span id="starTwo" class="fa fa-star checked"></span>
-                                                        <span id="starThree" class="fa fa-star checked"></span>
-                                                        <span id="starFour" class="fa fa-star checked"></span>
-                                                        <span id="starFive" class="fa fa-star checked"></span></p>
+                <p id="starRating" class="statMetrics">
+                    <span id="starOne" class="fa fa-star checked"></span>
+                    <span id="starTwo" class="fa fa-star checked"></span>
+                    <span id="starThree" class="fa fa-star checked"></span>
+                    <span id="starFour" class="fa fa-star checked"></span>
+                    <span id="starFive" class="fa fa-star checked"></span>
+                </p>
             </div>
         </header>
         <main>
@@ -44,8 +48,26 @@
             </div>
         </main>
         <br><br>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Congrats you won the game!</h2>
+                <p id="starRating_Modal" class="statMetrics">Here is your rating: 
+                    <span id="starOne_Modal" class="fa fa-star checked"></span>
+                    <span id="starTwo_Modal" class="fa fa-star checked"></span>
+                    <span id="starThree_Modal" class="fa fa-star checked"></span>
+                    <span id="starFour_Modal" class="fa fa-star checked"></span>
+                    <span id="starFive_Modal" class="fa fa-star checked"></span>
+                </p>
+                <p>
+                    <span>Here is your time: </span><span id="finalMinutes"></span>:<span id="finalSeconds"></span>
+                </p>
+                <button id='restartGame'>Restart</button>
+            </div>
+        </div>
         <script src="js/app.js" async defer></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="lib/easytimer/dist/easytimer.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </body>
 </html>

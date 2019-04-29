@@ -85,16 +85,9 @@ function compareImgs(imgEId) {
     }
 
     if(matchCount === 8) {
-        swal({
-            title: "YOU WIN!!!",
-            text: "Press ok to restart game!",
-            icon: "success",
-            //buttons: {restart = "Restart Game", cancel ="I don't want to play"}
-          })
-          .then((restart) => {
-            if (restart) {
-                location.reload(); }
-          });
+        openModal();
+        clearInterval(timer);
+        
     }
 }
 
@@ -179,8 +172,80 @@ function clearCache() {
     window.localStorage.clear();
 }
 
-var timer = new Timer();
-timer.start();
-timer.addEventListener('secondsUpdated', function (e) {
-    $('#timer').html(timer.getTimeValues().toString());
-});
+
+// Get the modal
+var modal = document.getElementById('myModal');
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+//Get the restart button
+var restartBttn = document.getElementById('restartGame');
+
+// When the user clicks on the button, open the modal 
+function openModal() {
+    modal.style.display = "block";
+    document.getElementById("finalSeconds").innerHTML = seconds;
+    document.getElementById("finalMinutes").innerHTML = minutes;
+
+    starOne = document.getElementById("starOne_Modal");
+    starTwo = document.getElementById("starTwo_Modal");
+    starThree = document.getElementById("starThree_Modal");
+    starFour = document.getElementById("starFour_Modal");
+    starFive = document.getElementById("starFive_Modal");
+
+    //4 stars
+    if (movesMade > 16 && movesMade <= 20) {starOne.className = "fa fa-star";}
+    //3 stars
+    else if (movesMade > 20 && movesMade <= 24) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+    }
+    //2 stars
+    else if (movesMade > 24 && movesMade <= 28) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+    }
+    //1 star
+    else if (movesMade > 28 && movesMade <= 32) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+        starFour.className = "fa fa-star";
+    }
+    //0 stars
+    else if (movesMade > 32) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+        starFour.className = "fa fa-star";
+        starFive.className = "fa fa-star";
+    }
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+restartBttn.onclick = function() {
+    location.reload();
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+var secTemp = 0;
+var secPerm = 0
+var seconds = 0;
+var minutes = 0;
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+var timer = setInterval( function(){
+    $("#seconds").html(pad(++secTemp%60));
+    $("#minutes").html(pad(parseInt(secTemp/60,10)));
+    seconds = pad(++secPerm%60);
+    minutes = pad(parseInt(secPerm/60,10));
+}, 1000);

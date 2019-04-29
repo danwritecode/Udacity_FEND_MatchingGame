@@ -40,7 +40,7 @@ var movesMade = 0;
 function compareImgs(imgEId) {
     for (var i = 0; i <= 16; i++) {
         if (imgEId === imgsSelected[i]) {
-            swal("You already selected this block!");
+            alert("You already selected this block!");
             return;
         }
     }
@@ -54,7 +54,7 @@ function compareImgs(imgEId) {
 
 
     if (localStorage["eID1"] === localStorage["eID2"]) {
-        swal("You can't select the same element twice")
+        alert("You can't select the same element twice")
         document.getElementById(localStorage["eID1"]).src = "img/blankbox.png";
         document.getElementById(localStorage["eID2"]).src = "img/blankbox.png";
         localStorage.setItem("eID1", null);

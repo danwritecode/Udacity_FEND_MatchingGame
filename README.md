@@ -1,6 +1,6 @@
-#Udactiy FEND Matching Game
+# Udactiy FEND Matching Game
 
-##Objective of the game: 
+## Objective of the game: 
 
 1. Click the squares until all squares are matching
 2. Review your time and rating at the end of the game
@@ -8,7 +8,7 @@
 4. Good luck!
 
 
-##Dependencies: 
+## Dependencies: 
 1. Google Jquery
 2. Google Fonts
 3. Font Awesome (for the stars)

@@ -38,7 +38,6 @@ var imgsSelected = [];
 var movesMade = 0;
 
 function compareImgs(imgEId) {
-    debugger;
     for (var i = 0; i <= 16; i++) {
         if (imgEId === imgsSelected[i]) {
             swal("You already selected this block!");
@@ -137,7 +136,43 @@ function clickTrack(imgEId) {
 }
 
 function incrimentMovesMade() {
+    //update moves made element
     document.getElementById("movesMade").innerHTML = "Moves Made: " + movesMade;
+
+    //logic for updating the 5 star scoring system based on moves made. 
+    starOne = document.getElementById("starOne");
+    starTwo = document.getElementById("starTwo");
+    starThree = document.getElementById("starThree");
+    starFour = document.getElementById("starFour");
+    starFive = document.getElementById("starFive");
+    //4 stars
+    if (movesMade > 16 && movesMade <= 20) {starOne.className = "fa fa-star";}
+    //3 stars
+    else if (movesMade > 20 && movesMade <= 24) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+    }
+    //2 stars
+    else if (movesMade > 24 && movesMade <= 28) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+    }
+    //1 star
+    else if (movesMade > 28 && movesMade <= 32) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+        starFour.className = "fa fa-star";
+    }
+    //0 stars
+    else if (movesMade > 32) {
+        starOne.className = "fa fa-star";
+        starTwo.className = "fa fa-star";
+        starThree.className = "fa fa-star";
+        starFour.className = "fa fa-star";
+        starFive.className = "fa fa-star";
+    }
 }
 
 function clearCache() {
